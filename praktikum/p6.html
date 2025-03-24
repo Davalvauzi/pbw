@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kalkulator sederhana</title>
+</head>
+<body>
+    <!-- <h1 id="judul">selamat datang</h1>
+    <button onclick="ubatTeks()">ubah teks</button>
+
+    <script>
+        function ubatTeks() {
+            document.getElementById("judul").innerHTML="Teks telah berubah"
+        }
+    </script> -->
+
+    <h2>kalkulator</h2>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button onclick="hitung()">hitung</button>
+    <p>hasil: <span id="hasil"></span></p>
+
+    <script>
+        function hitung() {
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+            let hasil = parseInt(num1) + parseInt(num2);
+            document.getElementById("hasil").innerText = hasil;
+        }
+    </script>
+</body>
+</html>
