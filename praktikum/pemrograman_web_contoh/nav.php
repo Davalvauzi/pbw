@@ -11,6 +11,9 @@
                        <a class="nav-link" href="index.php">Daftar Buku</a>
                    </li>
                    <li class="nav-item">
+                       <a class="nav-link" href="index_pelanggan.php">Daftar Pelanggan</a>
+                   </li>
+                   <li class="nav-item">
                        <a class="nav-link" href="tambah_buku.php">Tambah Buku</a>
                    </li>
                    <li class="nav-item">
