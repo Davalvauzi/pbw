@@ -2,6 +2,12 @@
 include 'koneksi_db.php'; // Koneksi database
 
 
+session_start();
+       if (!isset($_SESSION['login_Un51k4'])) {
+            header("Location: login.php?message=" . urlencode("Mengakses fitur harus login dulu bro."));
+           exit;
+       }
+
 // Query untuk menampilkan data pesanan beserta nama pelanggan dan total harga
 $query = "
    SELECT Pesanan.ID AS Pesanan_ID, Pelanggan.Nama AS Nama_Pelanggan, Pesanan.Tanggal_Pesanan, Pesanan.Total_Harga

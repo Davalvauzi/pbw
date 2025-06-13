@@ -2,6 +2,11 @@
 include 'koneksi_db.php';
 include 'nav.php';
 
+session_start();
+       if (!isset($_SESSION['login_Un51k4'])) {
+            header("Location: login.php?message=" . urlencode("Mengakses fitur harus login dulu bro."));
+           exit;
+       }
 
 // Ambil daftar buku dan pelanggan
 $buku_result = $conn->query("SELECT ID, Judul FROM Buku");

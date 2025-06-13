@@ -25,6 +25,9 @@
                    <li class="nav-item">
                        <a class="nav-link" href="lihat_transaksi.php">Lihat Pesanan</a>
                    </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="logout.php">Logut</a>
+                   </li>
                    <!-- <li class="nav-item">
                        <a class="nav-link" href="hapus.php">Hapus Buku</a>
                    </li> -->
