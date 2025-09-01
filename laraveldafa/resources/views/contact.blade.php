@@ -7,5 +7,7 @@
 </head>
 <body>
     <h1>kontak nih wir</h1>
+
+    <a href="{{route('about.page')}}">Halaman About</a>
 </body>
 </html>

@@ -15,5 +15,7 @@
     </table>
 
     <a href="{{route('contact.page')}}">kontak</a>
+<p></p>
+    <a href="{{route('manage.view')}}">Pergi ke halaman Manage</a>
 </body>
 </html>
