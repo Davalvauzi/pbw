@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,39 +18,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about');
-})->name(name: 'about.page');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name(name: 'contact.page');
-
-Route::get('/pengguna/{id}', function($id){
-    return "Halaman pengguna dengan ID: " . $id;
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix( 'admin')->group(function(){
-    Route::get('/dashboard', function() {
-        return 'admin dashboard';
-    });
+require __DIR__.'/auth.php';
 
-    Route::get('/profile', function(){
-        return 'admin profile';
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return "Selamat datang, Admin!";
     });
 });
 
-Route::prefix( 'manage')->group(function(){
-    Route::get('/edit-profile', function() {
-        return view(view: 'manage.edit');
-    })->name(name: 'manage.edit');
-
-    route::get('/add-profile', function(){
-        return view(view: 'manage.add');
-    })->name(name: 'manage.add');
-
-    route::get('/profile', function() {
-        return view(view: 'manage.view');
-    })->name(name: 'manage.view');
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/dashboard', function () {
+        return "Selamat datang, User!";
+    });
 });
+
