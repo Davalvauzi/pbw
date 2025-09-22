@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,17 +29,32 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return "Selamat datang, Admin!";
-    });
+// Route::middleware(['auth', 'admin'])->group(function () {
+//     Route::get('/admin/dashboard', function () {
+//         return "Selamat datang, Admin!";
+//     });
+// });
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/user/dashboard', function () {
+//         return "Selamat datang, User!";
+//     });
+// });
+
+Route::get('/dasboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified', 'RoleCheck:admin'])->name('dashboard');
+
+Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product/create', [ProductController::class, 'create']);
+Route::post('/product', [ProductController::class, 'store']);
+Route::get('/product/{id}', [ProductController::class, 'show']);
+Route::get('/product/{id}/edit', [ProductController::class, 'edit']);
+Route::put('/product/{id}', [ProductController::class, 'update']);
+Route::delete('/product/{id}', [ProductController::class, 'destroy']);
+
+Route::middleware(['auth', 'role:admin,owner'])->group(function () {
+    Route::get('/products/{angka}', [ProductController::class, 'index']);
 });
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/user/dashboard', function () {
-        return "Selamat datang, User!";
-    });
-});
-
