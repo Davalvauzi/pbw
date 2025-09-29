@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('uts.layouts.body')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTS web</title>
-</head>
-
-<body>
-    <h1>tes nih</h1>
-
-</body>
-
-</html>
+@section('content')
+    <h1>Ini halaman Index UTS WEB</h1>
+@endsection

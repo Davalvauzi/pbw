@@ -65,3 +65,5 @@ Route::get('/route_count/{id}', [BarangController::class, 'index']);
 route::get('/product', [ProductController::class, 'indexproduk']);
 
 route::get('/uts', [UtsController::class, 'index']);
+route::get('/web', [UtsController::class, 'web']);
+route::get('/database', [UtsController::class, 'database']);
