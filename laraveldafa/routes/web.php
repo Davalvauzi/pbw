@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\UtsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,5 @@ Route::middleware(['auth', 'role:admin,owner'])->group(function () {
 
 Route::get('/route_count/{id}', [BarangController::class, 'index']);
 route::get('/product', [ProductController::class, 'indexproduk']);
+
+route::get('/uts', [UtsController::class, 'index']);
