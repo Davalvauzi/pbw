@@ -4,28 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class BarangController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    // public function index($sepuluh)
-    // {
-    //     //
-    //     $hasil = $sepuluh + 10;
-
-    //     return view('products.index', compact('hasil'));
-    // }
-
-    public function indexproduk()
+    public function index($id)
     {
         //
-
-        return view('produk', [
-            // 'nama' => $data,
-            "AlertMessage" => 'sukses',
-            'alertType' => 'success'
-        ]);
+        return view('barang.barang', ['isi_data' => $id]);
     }
 
     /**
