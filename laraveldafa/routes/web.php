@@ -62,7 +62,9 @@ Route::middleware(['auth', 'role:admin,owner'])->group(function () {
 });
 
 Route::get('/route_count/{id}', [BarangController::class, 'index']);
-route::get('/product', [ProductController::class, 'indexproduk']);
+route::get('/product', [ProductController::class, 'indexproduk'])->name('product-index');
+Route::get('/product/create', [ProductController::class, 'create'])->name('product-create');
+route::post('/store', [ProductController::class, 'store'])->name('product-store');
 
 route::get('/uts', [UtsController::class, 'index']);
 route::get('/web', [UtsController::class, 'web']);
