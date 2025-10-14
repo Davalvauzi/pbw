@@ -10,13 +10,20 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index($sepuluh)
-    // {
-    //     //
-    //     $hasil = $sepuluh + 10;
+    public function index($nilai)
+    {
+        //
+        if ($nilai % 2 == 0) {
+            $alertType = 'success';
+            $pesan = "Nilai $nilai adalah genap.";
+        } else {
+            $alertType = 'warning';
+            $pesan = "Nilai $nilai adalah ganjil.";
+        }
 
-    //     return view('products.index', compact('hasil'));
-    // }
+        // Kirim data ke view
+        return view('products.product', compact('pesan', 'alertType'));
+    }
 
     public function indexproduk()
     {

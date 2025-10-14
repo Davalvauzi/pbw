@@ -57,9 +57,11 @@ Route::get('/dasboard', function () {
 // Route::put('/product/{id}', [ProductController::class, 'update']);
 // Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 
-Route::middleware(['auth', 'role:admin,owner'])->group(function () {
-    Route::get('/products/{angka}', [ProductController::class, 'index']);
-});
+// Route::middleware(['auth', 'role:admin,owner'])->group(function () {
+//     Route::get('/products/{angka}', [ProductController::class, 'index']);
+// });
+
+Route::get('/produk/{nilai}', [ProductController::class, 'index']);
 
 Route::get('/route_count/{id}', [BarangController::class, 'index']);
 route::get('/product', [ProductController::class, 'indexproduk'])->name('product-index');

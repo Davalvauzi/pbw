@@ -1,4 +1,5 @@
-<div class="alert alert{{ $type }}">
-    {{ $message }}
-    <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
+@props(['type' => 'info'])
+
+<div {{ $attributes->merge(['class' => "alert alert-$type"]) }}>
+    {{ $slot }}
 </div>
