@@ -27,13 +27,10 @@ class ProductController extends Controller
 
     public function indexproduk()
     {
-        //
+        // Tampilkan semua produk (read)
+        $products = Product::orderBy('created_at', 'desc')->get();
 
-        return view('produk', [
-            // 'nama' => $data,
-            "AlertMessage" => 'sukses',
-            'alertType' => 'success'
-        ]);
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -70,7 +67,10 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Tampilkan detail produk
+        $product = Product::findOrFail($id);
+
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -78,7 +78,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // Tampilkan form edit produk
+        $product = Product::findOrFail($id);
+
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -86,7 +89,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Update data produk
+        $validasi_data = $request->validate([
+            'product_name' => 'required|string|max:255',
+            'unit' => 'required|string|max:50',
+            'type' => 'required|string|max:50',
+            'information' => 'nullable|string',
+            'qty' => 'required|integer',
+            'producer' => 'required|string|max:255',
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->update($validasi_data);
+
+        return redirect()->route('product-index')->with('success', 'produk berhasil diupdate!');
     }
 
     /**
@@ -94,6 +110,10 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Hapus produk
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('product-index')->with('success', 'produk berhasil dihapus!');
     }
 }

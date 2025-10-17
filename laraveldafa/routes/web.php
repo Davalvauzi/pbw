@@ -66,7 +66,15 @@ Route::get('/produk/{nilai}', [ProductController::class, 'index']);
 Route::get('/route_count/{id}', [BarangController::class, 'index']);
 route::get('/product', [ProductController::class, 'indexproduk'])->name('product-index');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product-create');
-route::post('/store', [ProductController::class, 'store'])->name('product-store');
+route::post('/product', [ProductController::class, 'store'])->name('product-store');
+// Show product details
+route::get('/product/{id}', [ProductController::class, 'show'])->name('product-show');
+// Edit form
+route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product-edit');
+// Update product
+route::put('/product/{id}', [ProductController::class, 'update'])->name('product-update');
+// Delete product
+route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product-destroy');
 
 route::get('/uts', [UtsController::class, 'index']);
 route::get('/web', [UtsController::class, 'web']);
