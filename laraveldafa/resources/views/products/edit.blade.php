@@ -17,51 +17,66 @@
                             @method('PUT')
 
                             <div class="form-group">
-                                <label for="product_name" class="block text-sm font-medium text-gray-700">Product Name</label>
-                                <input type="text" id="product_name" name="product_name" value="{{ old('product_name', $product->product_name) }}"
+                                <label for="product_name" class="block text-sm font-medium text-gray-700">Product
+                                    Name</label>
+                                <input type="text" id="product_name" name="product_name"
+                                    value="{{ old('product_name', $product->product_name) }}"
                                     class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     required>
                             </div>
 
                             <div class="form-group">
                                 <label for="unit" class="block text-sm font-medium text-gray-700">Unit</label>
-                                <select id="unit" name="unit" class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                                <select id="unit" name="unit"
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    required>
                                     <option value="" disabled>Select a unit</option>
-                                    <option value="kg" {{ old('unit', $product->unit) == 'kg' ? 'selected' : '' }}>Kilogram (kg)</option>
-                                    <option value="ltr" {{ old('unit', $product->unit) == 'ltr' ? 'selected' : '' }}>Liter (ltr)</option>
-                                    <option value="pcs" {{ old('unit', $product->unit) == 'pcs' ? 'selected' : '' }}>Pieces (pcs)</option>
-                                    <option value="box" {{ old('unit', $product->unit) == 'box' ? 'selected' : '' }}>Box</option>
+                                    <option value="kg" {{ old('unit', $product->unit) == 'kg' ? 'selected' : '' }}>
+                                        Kilogram (kg)</option>
+                                    <option value="ltr" {{ old('unit', $product->unit) == 'ltr' ? 'selected' : '' }}>
+                                        Liter (ltr)</option>
+                                    <option value="pcs" {{ old('unit', $product->unit) == 'pcs' ? 'selected' : '' }}>
+                                        Pieces (pcs)</option>
+                                    <option value="box" {{ old('unit', $product->unit) == 'box' ? 'selected' : '' }}>
+                                        Box</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
-                                <input type="text" id="type" name="type" value="{{ old('type', $product->type) }}"
+                                <input type="text" id="type" name="type"
+                                    value="{{ old('type', $product->type) }}"
                                     class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     required>
                             </div>
 
                             <div class="form-group">
-                                <label for="information" class="block text-sm font-medium text-gray-700">Information</label>
-                                <textarea id="information" name="information" rows="3" class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">{{ old('information', $product->information) }}</textarea>
+                                <label for="information"
+                                    class="block text-sm font-medium text-gray-700">Information</label>
+                                <textarea id="information" name="information" rows="3"
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">{{ old('information', $product->information) }}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="qty" class="block text-sm font-medium text-gray-700">Quantity</label>
-                                <input type="number" id="qty" name="qty" value="{{ old('qty', $product->qty) }}"
+                                <input type="number" id="qty" name="qty"
+                                    value="{{ old('qty', $product->qty) }}"
                                     class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     required>
                             </div>
 
                             <div class="form-group">
                                 <label for="producer" class="block text-sm font-medium text-gray-700">Producer</label>
-                                <input type="text" id="producer" name="producer" value="{{ old('producer', $product->producer) }}"
+                                <input type="text" id="producer" name="producer"
+                                    value="{{ old('producer', $product->producer) }}"
                                     class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     required>
                             </div>
 
-                            <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-                            <a href="{{ route('product-index') }}" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 border border-transparent rounded-md shadow-sm">Cancel</a>
+                            <button type="submit"
+                                class="inline-flex justify-center px-4 py-2 text-sm font-medium text-black bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                            <a href="{{ route('product-index') }}"
+                                class="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 border border-transparent rounded-md shadow-sm">Cancel</a>
                         </form>
                     </div>
                     @vite('resources/js/app.js')

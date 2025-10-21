@@ -49,31 +49,15 @@ Route::get('/dasboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', 'RoleCheck:admin'])->name('dashboard');
 
-// Route::get('/product', [ProductController::class, 'index']);
-// Route::get('/product/create', [ProductController::class, 'create']);
-// Route::post('/product', [ProductController::class, 'store']);
-// Route::get('/product/{id}', [ProductController::class, 'show']);
-// Route::get('/product/{id}/edit', [ProductController::class, 'edit']);
-// Route::put('/product/{id}', [ProductController::class, 'update']);
-// Route::delete('/product/{id}', [ProductController::class, 'destroy']);
-
-// Route::middleware(['auth', 'role:admin,owner'])->group(function () {
-//     Route::get('/products/{angka}', [ProductController::class, 'index']);
-// });
-
 Route::get('/produk/{nilai}', [ProductController::class, 'index']);
 
 Route::get('/route_count/{id}', [BarangController::class, 'index']);
 route::get('/product', [ProductController::class, 'indexproduk'])->name('product-index');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product-create');
 route::post('/product', [ProductController::class, 'store'])->name('product-store');
-// Show product details
 route::get('/product/{id}', [ProductController::class, 'show'])->name('product-show');
-// Edit form
 route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product-edit');
-// Update product
 route::put('/product/{id}', [ProductController::class, 'update'])->name('product-update');
-// Delete product
 route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product-destroy');
 
 route::get('/uts', [UtsController::class, 'index']);
