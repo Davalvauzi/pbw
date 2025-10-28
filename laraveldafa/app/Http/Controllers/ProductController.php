@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductsExport;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -112,5 +114,10 @@ class ProductController extends Controller
         // $product->delete();
 
         return redirect()->route('product-index')->with('success', 'produk berhasil dihapus!');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new ProductsExport, 'products.xlsx');
     }
 }

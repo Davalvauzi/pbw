@@ -35,8 +35,11 @@
                     </dl>
 
                     <div class="mt-6 space-x-2">
-                        <a href="{{ route('product-edit', $product->id) }}" class="px-4 py-2 text-white bg-yellow-500 rounded">Edit</a>
-                        <a href="{{ route('product-index') }}" class="px-4 py-2 text-gray-700 bg-gray-200 rounded">Back</a>
+                        <a href="{{ route('product-edit', $product->id) }}"
+                            class="px-4 py-2 text-white bg-yellow-500 rounded">Edit</a>
+                        <a href="{{ route('product-index') }}"
+                            class="px-4 py-2 text-gray-700 bg-gray-200 rounded">Back</a>
+                        <a href="{{ route('products.export') }}" class="btn btn-success mb-3">Export ke Excel</a>
                     </div>
                 </div>
             </div>

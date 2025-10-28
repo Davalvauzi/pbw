@@ -59,6 +59,8 @@ route::get('/product/{id}', [ProductController::class, 'show'])->name('product-s
 route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product-edit');
 route::put('/product/{id}', [ProductController::class, 'update'])->name('product-update');
 route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product-destroy');
+// route untuk export data ke excel
+Route::get('/products/export', [ProductController::class, 'exportExcel'])->name('products.export');
 
 route::get('/uts', [UtsController::class, 'index']);
 route::get('/web', [UtsController::class, 'web']);
